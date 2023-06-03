@@ -73,11 +73,11 @@ public class CardGame {
         }
     }
 
-    private void shuffleDeck() {
+    public void shuffleDeck() {
         Collections.shuffle(drawPile);
     }
 
-    private void play() {
+    public void play() {
         System.out.println("Player " + (currentPlayer + 1) + "'s turn.");
         System.out.println("Top card: " + discardPile.get(discardPile.size() - 1));
         System.out.println("Your hand: " + playersCard[currentPlayer]);
@@ -127,7 +127,7 @@ public class CardGame {
                 playedCardComponents[2].equalsIgnoreCase(topCardComponents[2]);
     }
 
-    private void applySpecialAction(String playedCard) {
+    public void applySpecialAction(String playedCard) {
         String[] playedCardComponents = playedCard.split(" ");
         String rank = playedCardComponents[0];
 
@@ -184,6 +184,21 @@ public class CardGame {
             currentPlayer = (currentPlayer + 1) % playersCard.length;
         }
     }
+    
+    public int getDrawPileSize() {
+        return drawPile.size();
+    }
 
+    public int getDiscardPileSize() {
+        return drawPile.size();
+    }
+
+    public List<String> getDrawPile() {
+        return drawPile;
+    }
+
+    public int getPlayerHandSize(int ind) {
+        return playersCard[ind].size();
+    }
     
 }
